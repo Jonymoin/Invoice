@@ -154,6 +154,7 @@ const Invoice = () => {
               <h1 className="text-xl font-bold text-blue-900">
                 For ASIAN CONS & ENGG PTE LTD
               </h1>
+              <p className="text-sm mt-2 text-gray-700 leading-relaxed">Company Registration No: 202334587K</p>
               <p className="text-sm mt-2 text-gray-700 leading-relaxed">
                 7030 Ang Mo Kio Ave 5, #01-53, Singapore 569880 <br />
                 Tel: +65 8530 1773 <br />
