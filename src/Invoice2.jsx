@@ -53,7 +53,7 @@ const Invoice = () => {
         // =======================
         <div className="bg-white p-8 shadow-xl rounded-2xl border border-gray-200">
           <h1 className="text-2xl font-bold text-blue-800 mb-6 text-center">
-            Create New Invoice
+            Create New Invoice (Asian)
           </h1>
 
           {/* Recipient Info */}
