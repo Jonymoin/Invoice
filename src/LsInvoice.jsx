@@ -269,7 +269,7 @@ const Invoice4 = () => {
             </div>
 
             <div className="text-right text-sm">
-              <div className="font-bold">LSH ENGINEERING PRIVATE LIMITED</div>
+              <div className="font-bold text-2xl">LSH ENGINEERING PRIVATE LIMITED</div>
               <div>
                 707 JURONG WEST STREET 71, #06-48, SINGAPORE (640707)
               </div>
@@ -324,6 +324,9 @@ const Invoice4 = () => {
                   <span className="font-semibold">Note :</span> Total Amount is
                   inclusive of GST.
                 </div>
+                <div className="mt-4 text-xm text-gray-800">
+                <div className="font-semibold">PAYNOW: 83091653</div>
+              </div>
               </div>
 
               <div className="mb-4">
@@ -371,9 +374,7 @@ const Invoice4 = () => {
                 </div>
               </div>
 
-              <div className="mt-4 text-xs text-gray-800 text-right">
-                <div className="font-semibold">PAYNOW: 83091653</div>
-              </div>
+              
             </div>
           </div>
 
