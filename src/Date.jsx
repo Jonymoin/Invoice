@@ -229,7 +229,7 @@ const Date1 = () => {
 
           <button
             onClick={handleReset}
-            className="absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 text-sm px-3 py-1 rounded-md"
+            className="absolute top-2 right-4 bg-gray-200 hover:bg-gray-300 text-sm px-3 py-1 rounded-md"
           >
             Reset
           </button>

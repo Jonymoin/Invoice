@@ -241,7 +241,7 @@ const Invoice4 = () => {
           <div className="flex items-start justify-between border-b pb-4 mb-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-blue-600 text-white rounded-md flex items-center justify-center font-bold">
-                <span style={{ fontSize: 14 }}>🏠</span>
+                <img src="/logo102.png" alt="" />
               </div>
               <div>
                 <div className="text-lg font-bold">WasherTroubleshoot SG</div>
