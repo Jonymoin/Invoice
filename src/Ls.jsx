@@ -204,7 +204,7 @@ const Invoice3 = () => {
 
           <div className="text-sm mb-10">
             <p>
-              <span className="font-semibold">PAYNOW:</span> 83091653
+              
             </p>
           </div>
 

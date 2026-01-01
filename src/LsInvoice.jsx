@@ -325,7 +325,7 @@ const Invoice4 = () => {
                   inclusive of GST.
                 </div>
                 <div className="mt-4 text-xm text-gray-800">
-                <div className="font-semibold">PAYNOW: 83091653</div>
+                
               </div>
               </div>
 
