@@ -4,8 +4,8 @@ const workGroupDefaults = [
   "Washing Machine Repair",
   "Plumbing Service",
   "Painting",
-  "Transportation",
   "Others",
+  "Transportation",
 ];
 
 const Invoice4 = () => {
@@ -340,7 +340,7 @@ const Invoice4 = () => {
                   </label>
                   <label className="inline-flex items-center gap-2">
                     <input type="checkbox" readOnly />{" "}
-                    <span>Bank Transfer</span>
+                    <span>UEN:201916839E</span>
                   </label>
                 </div>
                 <div className="mt-3 text-sm">
