@@ -2,6 +2,7 @@ import AsianColor from "./AsianColor"
 import Date1 from "./Date"
 import Invoice3 from "./Ls"
 import Invoice4 from "./LsInvoice"
+import RockyColor from "./RockyColor"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         
         <Invoice3 />
         <Invoice4 />
+        <RockyColor />
       </div>
     </>
   )

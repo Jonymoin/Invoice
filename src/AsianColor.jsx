@@ -294,6 +294,7 @@ const AsianColor = () => {
               </div>
               <div style={{ borderTop: "1.5px solid #1a4fa0", paddingTop: 6 }}>
                 <div style={{ fontSize: 11, color: "#64748b", letterSpacing: 0.5 }}>Authorized Signatory</div>
+                <div style={{ fontSize: 11, color: "#64748b", letterSpacing: 0.5 }}>washingsolutionsg.com</div>
               </div>
             </div>
           </div>
