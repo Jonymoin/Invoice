@@ -38,12 +38,8 @@ const RockyColor = () => {
   const total = subtotal;
 
   const handleSubmit = () => setSubmitted(true);
-
   const handleReset = () => {
-    setPrefix("Mr.");
-    setToName("");
-    setToPhone("");
-    setToAddress("");
+    setPrefix("Mr."); setToName(""); setToPhone(""); setToAddress("");
     setRows(workGroups.map((n) => ({ name: n, description: "", amount: "" })));
     setSubmitted(false);
   };
@@ -51,40 +47,36 @@ const RockyColor = () => {
   const savePDF = async () => {
     setSaving(true);
     try {
-      const el = invoiceRef.current;
-      const canvas = await html2canvas(el, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: "#ffffff",
-        logging: false,
-        onclone: (doc) => {
-          const cloned = doc.getElementById("invoice-print");
-          if (cloned) cloned.style.borderRadius = "0";
-        },
+      const canvas = await html2canvas(invoiceRef.current, {
+        scale: 2, useCORS: true, allowTaint: true, backgroundColor: "#ffffff",
       });
-      const imgData = canvas.toDataURL("image/png");
-      const { jsPDF } = await import("jspdf");
       const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
       const pw = pdf.internal.pageSize.getWidth();
       const ph = pdf.internal.pageSize.getHeight();
       const iw = pw - 16;
       const ih = (canvas.height * iw) / canvas.width;
-      const y = ih < ph ? (ph - ih) / 2 : 8;
-      pdf.addImage(imgData, "PNG", 8, y, iw, Math.min(ih, ph - 16));
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 8, ih < ph ? (ph - ih) / 2 : 8, iw, Math.min(ih, ph - 16));
       pdf.save(`Invoice-${invoiceNo}-${toName || "Customer"}.pdf`);
-    } catch (e) {
-      console.error(e);
-      alert("PDF save failed: " + e.message);
-    }
+    } catch (e) { alert("PDF save failed. Try again."); }
+    setSaving(false);
+  };
+
+  const saveImage = async () => {
+    setSaving(true);
+    try {
+      const canvas = await html2canvas(invoiceRef.current, {
+        scale: 2, useCORS: true, allowTaint: true, backgroundColor: "#ffffff",
+      });
+      const link = document.createElement("a");
+      link.download = `Invoice-${invoiceNo}-${toName || "Customer"}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } catch (e) { alert("Image save failed. Try again."); }
     setSaving(false);
   };
 
   const displayName = toName ? `${prefix} ${toName}` : prefix;
 
-  // ========================
-  // FORM VIEW
-  // ========================
   if (!submitted) {
     return (
       <div style={{ maxWidth: 760, margin: "0 auto", padding: "24px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
@@ -152,8 +144,7 @@ const RockyColor = () => {
           </div>
 
           <div style={{ marginTop: 20, textAlign: "center" }}>
-            <button onClick={handleSubmit}
-              style={{ background: gradBg, color: "white", border: "none", borderRadius: 12, padding: "13px 40px", fontSize: 16, fontWeight: 700, cursor: "pointer" }}>
+            <button onClick={handleSubmit} style={{ background: gradBg, color: "white", border: "none", borderRadius: 12, padding: "13px 40px", fontSize: 16, fontWeight: 700, cursor: "pointer" }}>
               Generate Invoice →
             </button>
           </div>
@@ -162,26 +153,22 @@ const RockyColor = () => {
     );
   }
 
-  // ========================
-  // INVOICE VIEW
-  // ========================
   return (
     <div style={{ maxWidth: 760, margin: "0 auto", padding: "24px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
-      <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
-        <button onClick={handleReset}
-          style={{ background: "#f1f5f9", border: "1.5px solid #cbd5e1", borderRadius: 10, padding: "9px 20px", fontSize: 14, fontWeight: 600, cursor: "pointer", color: "#475569" }}>
+      {/* Action Buttons */}
+      <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
+        <button onClick={handleReset} style={{ background: "#f1f5f9", border: "1.5px solid #cbd5e1", borderRadius: 10, padding: "9px 20px", fontSize: 14, fontWeight: 600, cursor: "pointer", color: "#475569" }}>
           ← New Invoice
         </button>
-        <button onClick={savePDF} disabled={saving}
-          style={{ background: gradBg, color: "white", border: "none", borderRadius: 10, padding: "9px 22px", fontSize: 14, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.7 : 1 }}>
+        <button onClick={savePDF} disabled={saving} style={{ background: gradBg, color: "white", border: "none", borderRadius: 10, padding: "9px 22px", fontSize: 14, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.7 : 1 }}>
           {saving ? "Saving..." : "⬇ Save as PDF"}
+        </button>
+        <button onClick={saveImage} disabled={saving} style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)", color: "white", border: "none", borderRadius: 10, padding: "9px 22px", fontSize: 14, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.7 : 1 }}>
+          {saving ? "Saving..." : "🖼 Save as Image"}
         </button>
       </div>
 
-      <div id="invoice-print" ref={invoiceRef}
-        style={{ background: "white", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)", border: "1px solid #e2e8f0" }}>
-
-        {/* Header */}
+      <div id="invoice-print" ref={invoiceRef} style={{ background: "white", borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.1)", border: "1px solid #e2e8f0" }}>
         <div style={{ background: gradBg, padding: "24px 32px", color: "white" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
             <div>
@@ -203,7 +190,6 @@ const RockyColor = () => {
           </div>
         </div>
 
-        {/* Bill To */}
         <div style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "14px 32px" }}>
           <div style={{ fontSize: 10, fontWeight: 700, color: "#64748b", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 6 }}>Bill To</div>
           <div style={{ fontSize: 16, fontWeight: 800, color: "#1e293b" }}>{displayName}</div>
@@ -211,7 +197,6 @@ const RockyColor = () => {
           {toAddress && <div style={{ fontSize: 13, color: "#475569", marginTop: 2 }}>{toAddress}</div>}
         </div>
 
-        {/* Table */}
         <div style={{ padding: "24px 32px" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
@@ -235,9 +220,7 @@ const RockyColor = () => {
             </tbody>
           </table>
 
-          {/* Bottom */}
           <div style={{ display: "flex", gap: 24, marginTop: 24 }}>
-            {/* Left */}
             <div style={{ flex: 1 }}>
               <div style={{ background: "#fffbeb", border: "1.5px solid #fde68a", borderRadius: 10, padding: "12px 16px", marginBottom: 14 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#92400e", marginBottom: 8, textTransform: "uppercase", letterSpacing: 0.5 }}>Payment Method</div>
@@ -262,7 +245,6 @@ const RockyColor = () => {
               </div>
             </div>
 
-            {/* Right */}
             <div style={{ width: 220, display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between" }}>
               <div style={{ background: gradBg, color: "white", borderRadius: 12, padding: "16px 20px", width: "100%", textAlign: "right" }}>
                 <div style={{ fontSize: 12, opacity: 0.75, marginBottom: 4 }}>Sub-Total</div>
@@ -277,7 +259,7 @@ const RockyColor = () => {
               <div style={{ marginTop: 24, textAlign: "right", width: "100%" }}>
                 <div style={{ fontSize: 12, fontWeight: 700, color: "#1e293b", marginBottom: 8 }}>For LSH ENGINEERING PTE LTD</div>
                 <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 4 }}>
-                  <svg width="130" height="46" viewBox="0 0 130 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="130" height="46" viewBox="0 0 130 46" fill="none">
                     <path d="M6 36 C14 14, 26 8, 34 20 C39 28, 37 36, 44 26 C52 14, 56 6, 64 20 C70 30, 67 38, 75 26 C82 14, 87 6, 96 18 C102 28, 100 38, 108 28 C114 20, 118 14, 124 18"
                       stroke="#1e3a8a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     <path d="M18 42 C40 39, 65 40, 90 39 C104 38, 116 39, 126 37"
@@ -290,7 +272,7 @@ const RockyColor = () => {
           </div>
 
           <div style={{ marginTop: 20, textAlign: "center", fontSize: 13, color: "#94a3b8", fontStyle: "italic", borderTop: "1px solid #f1f5f9", paddingTop: 14 }}>
-            Thank you for your business! · WasherTroubleshootSG.com
+            Thank you for your business! · WasherTroubleshoot SG
           </div>
         </div>
       </div>
