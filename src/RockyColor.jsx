@@ -274,6 +274,7 @@ const RockyColor = () => {
                 <span style={{ fontWeight: 700, color: "#111" }}>Note:</span> Total amount is inclusive of GST.
               </div>
               <div style={{ marginTop: 14 }}>
+                <div style={{ fontSize: 18, color: "#555" }}>30 days warranty</div>
                 <div style={{ fontSize: 12, fontWeight: 700, color: "#111", marginBottom: 8 }}>Work Completed & Checked by Customer</div>
                 <div style={{ fontSize: 11, color: "#777", marginBottom: 30 }}>Customer has checked the work and is satisfied prior to payment and signing.</div>
                 <div style={{ borderTop: "1px solid #ccc", paddingTop: 5, fontSize: 11, color: "#aaa" }}>Customer Signature / Date</div>
@@ -288,17 +289,19 @@ const RockyColor = () => {
                 <div style={{ fontSize: 11, color: "#aaa", marginBottom: 7 }}>GST: S$0.00</div>
                 <div style={{ borderTop: "1px solid #ddd", paddingTop: 9 }}>
                   <div style={{ fontSize: 11, color: "#555" }}>TOTAL AMOUNT</div>
+                  
                   <div style={{ fontSize: 24, fontWeight: 900, marginTop: 3, color: "#111" }}>S${total.toFixed(2)}</div>
                 </div>
               </div>
               <div style={{ marginTop: 20, textAlign: "right", width: "100%" }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "#111", marginBottom: 7 }}>For LSH ENGINEERING PTE LTD</div>
-                <svg width="120" height="42" viewBox="0 0 130 46" fill="none">
-                  <path d="M6 36 C14 14,26 8,34 20 C39 28,37 36,44 26 C52 14,56 6,64 20 C70 30,67 38,75 26 C82 14,87 6,96 18 C102 28,100 38,108 28 C114 20,118 14,124 18" stroke="#111" strokeWidth="2" strokeLinecap="round" fill="none" />
-                  <path d="M18 42 C40 39,65 40,90 39 C104 38,116 39,126 37" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.35" />
-                </svg>
-                <div style={{ borderTop: "1.5px solid #111", paddingTop: 5, fontSize: 11, color: "#aaa" }}>Authorized Signatory</div>
-              </div>
+  <div style={{ fontSize: 12, fontWeight: 700, color: "#111", marginBottom: 7 }}>For LSH ENGINEERING PTE LTD</div>
+  <img 
+    src="/sig.jpeg" 
+    alt="Signature" 
+    style={{ width: 120, height: 42, objectFit: "contain", display: "inline-block" }}
+  />
+  <div style={{ borderTop: "1.5px solid #111", paddingTop: 5, fontSize: 11, color: "#aaa" }}>Authorized Signatory</div>
+</div>
             </div>
           </div>
 
