@@ -13,7 +13,7 @@ const SarimonInvoice = () => {
   const [invNo, setInvNo] = useState("101");
   const [warrantyDays, setWarrantyDays] = useState("30");
   const [items, setItems] = useState([
-    { description: "Engineering Service", note: "", amount: "" },
+    { description: "Washing Machine Repair Service", note: "", amount: "" },
     { description: "Transportation", note: "", amount: "" },
   ]);
   const [submitted, setSubmitted] = useState(false);
@@ -42,7 +42,7 @@ const SarimonInvoice = () => {
     setInvNo("101");
     setWarrantyDays("30");
     setItems([
-      { description: "Engineering Service", note: "", amount: "" },
+      { description: "Washing Machine Repair Service", note: "", amount: "" },
       { description: "Transportation", note: "", amount: "" },
     ]);
     setSubmitted(false);
