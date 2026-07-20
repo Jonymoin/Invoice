@@ -13,7 +13,7 @@ const SarimonInvoice = () => {
   const [invNo, setInvNo] = useState("101");
   const [warrantyDays, setWarrantyDays] = useState("30");
   const [items, setItems] = useState([
-    { description: "Washing machine Repair Service", note: "", amount: "" },
+    { description: "Engineering Service", note: "", amount: "" },
     { description: "Transportation", note: "", amount: "" },
   ]);
   const [submitted, setSubmitted] = useState(false);
@@ -114,16 +114,16 @@ const SarimonInvoice = () => {
   // ── FORM VIEW ──────────────────────────────────────────────────────────
   if (!submitted) {
     return (
-      <div style={{ minHeight: "100vh", background: "#f3f4f6", padding: "32px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
+      <div style={{ minHeight: "100vh", background: "#ffffff", padding: "32px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
         <div style={{ maxWidth: 640, margin: "0 auto" }}>
 
           {/* Top bar */}
-          <div style={{ background: "#0b2545", borderRadius: 16, padding: "20px 28px", marginBottom: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ background: "#ffffff", border: "1px solid #d1d5db", borderRadius: 16, padding: "20px 28px", marginBottom: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div>
-              <p style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 2, margin: 0 }}>Invoice Generator</p>
-              <p style={{ fontSize: 17, fontWeight: 800, color: "white", margin: "4px 0 0" }}>SARIMON ENGINEERING PTE. LTD</p>
+              <p style={{ fontSize: 10, color: "#000000", textTransform: "uppercase", letterSpacing: 2, margin: 0 }}>Invoice Generator</p>
+              <p style={{ fontSize: 17, fontWeight: 800, color: "#000000", margin: "4px 0 0" }}>SARIMON ENGINEERING PTE. LTD</p>
             </div>
-            <div style={{ textAlign: "right", fontSize: 11, color: "#94a3b8", lineHeight: 1.8 }}>
+            <div style={{ textAlign: "right", fontSize: 11, color: "#000000", lineHeight: 1.8 }}>
               <p style={{ margin: 0 }}>UEN: 202231424N</p>
               <p style={{ margin: 0 }}>Keng Yee Garden, 419823</p>
             </div>
@@ -134,9 +134,9 @@ const SarimonInvoice = () => {
 
             {/* Invoice badge */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
-              <span style={{ background: "#0b2545", color: "white", fontWeight: 800, letterSpacing: 2, fontSize: 17, padding: "6px 20px", borderRadius: 12 }}>INVOICE</span>
-              <div style={{ fontSize: 13, color: "#374151", textAlign: "right" }}>
-                <span style={{ color: "#9ca3af" }}>INV NO: </span>
+              <span style={{ background: "#ffffff", border: "1px solid #000000", color: "#000000", fontWeight: 800, letterSpacing: 2, fontSize: 17, padding: "6px 20px", borderRadius: 12 }}>INVOICE</span>
+              <div style={{ fontSize: 13, color: "#000000", textAlign: "right" }}>
+                <span style={{ color: "#000000" }}>INV NO: </span>
                 <strong>#{invNo}</strong>
               </div>
             </div>
@@ -185,7 +185,7 @@ const SarimonInvoice = () => {
             {items.map((item, i) => (
               <div key={i} style={{ background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 12, padding: 16, marginBottom: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                  <span style={{ width: 28, height: 28, borderRadius: "50%", background: "#0b2545", color: "white", fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+                  <span style={{ width: 28, height: 28, borderRadius: "50%", background: "#ffffff", border: "1px solid #000000", color: "#000000", fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
                   <input type="text" placeholder="Description" value={item.description}
                     onChange={(e) => updateItem(i, "description", e.target.value)}
                     style={{ ...field, flex: 1, fontWeight: 600 }} />
@@ -210,15 +210,15 @@ const SarimonInvoice = () => {
             </button>
 
             {/* Total */}
-            <div style={{ marginTop: 20, background: "#0b2545", borderRadius: 12, padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ color: "#cbd5e1", fontWeight: 600, fontSize: 14 }}>Total Amount</span>
-              <span style={{ color: "white", fontWeight: 800, fontSize: 24 }}>${total.toFixed(2)}</span>
+            <div style={{ marginTop: 20, background: "#ffffff", border: "1px solid #000000", borderRadius: 12, padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ color: "#000000", fontWeight: 600, fontSize: 14 }}>Total Amount</span>
+              <span style={{ color: "#000000", fontWeight: 800, fontSize: 24 }}>${total.toFixed(2)}</span>
             </div>
 
             {/* Generate button */}
             <div style={{ marginTop: 20, textAlign: "center" }}>
               <button onClick={handleSubmit}
-                style={{ background: "#0b2545", color: "white", border: "none", borderRadius: 12, padding: "13px 44px", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
+                style={{ background: "#ffffff", color: "#000000", border: "1px solid #000000", borderRadius: 12, padding: "13px 44px", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>
                 Generate Invoice →
               </button>
             </div>
@@ -230,21 +230,21 @@ const SarimonInvoice = () => {
 
   // ── INVOICE PREVIEW ────────────────────────────────────────────────────
   return (
-    <div style={{ minHeight: "100vh", background: "#f3f4f6", padding: "32px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#ffffff", padding: "32px 16px", fontFamily: "'Segoe UI', sans-serif" }}>
       <div style={{ maxWidth: 640, margin: "0 auto" }}>
 
         {/* Action buttons */}
         <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
           <button onClick={handleReset}
-            style={{ background: "white", border: "1px solid #d1d5db", color: "#374151", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+            style={{ background: "white", border: "1px solid #000000", color: "#000000", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
             ← New Invoice
           </button>
           <button onClick={savePDF} disabled={saving}
-            style={{ background: "#0b2545", color: "white", border: "none", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
+            style={{ background: "white", border: "1px solid #000000", color: "#000000", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
             {saving ? "Saving..." : "⬇ Save as PDF"}
           </button>
           <button onClick={saveImage} disabled={saving}
-            style={{ background: "#4b5563", color: "white", border: "none", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
+            style={{ background: "white", border: "1px solid #000000", color: "#000000", borderRadius: 12, padding: "10px 20px", fontSize: 13, fontWeight: 600, cursor: "pointer", opacity: saving ? 0.6 : 1 }}>
             {saving ? "Saving..." : "🖼 Save as Image"}
           </button>
         </div>
@@ -252,54 +252,54 @@ const SarimonInvoice = () => {
         {/* ── Printable Invoice (সব inline style) ── */}
         <div ref={invoiceRef} style={{ background: "white", borderRadius: 16, overflow: "hidden", border: "1px solid #e5e7eb", fontFamily: "'Segoe UI', sans-serif" }}>
 
-          {/* Header — navy blue for client-facing copy */}
-          <div style={{ background: "#0b2545", padding: "28px 32px" }}>
+          {/* Header */}
+          <div style={{ background: "#ffffff", borderBottom: "2px solid #000000", padding: "28px 32px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>
-                <p style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 2, margin: "0 0 4px" }}>Issued by</p>
-                <p style={{ fontSize: 17, fontWeight: 800, color: "white", margin: 0 }}>SARIMON ENGINEERING PTE. LTD</p>
-                <p style={{ fontSize: 11, color: "#cbd5e1", lineHeight: 1.9, marginTop: 6, margin: "6px 0 0" }}>
+                <p style={{ fontSize: 10, color: "#000000", textTransform: "uppercase", letterSpacing: 2, margin: "0 0 4px" }}>Issued by</p>
+                <p style={{ fontSize: 17, fontWeight: 800, color: "#000000", margin: 0 }}>SARIMON ENGINEERING PTE. LTD</p>
+                <p style={{ fontSize: 11, color: "#000000", lineHeight: 1.9, marginTop: 6, margin: "6px 0 0" }}>
                   UEN: 202231424N · Exempt Private Company Limited By Shares<br />
                   Keng Yee Garden, Singapore 419823
                 </p>
               </div>
               <div style={{ textAlign: "right" }}>
-                <p style={{ fontSize: 30, fontWeight: 900, color: "#3b5578", letterSpacing: 4, margin: 0 }}>INVOICE</p>
-                <span style={{ background: "white", color: "#0b2545", fontWeight: 700, fontSize: 13, padding: "3px 14px", borderRadius: 8, display: "inline-block", marginTop: 6 }}>
+                <p style={{ fontSize: 30, fontWeight: 900, color: "#000000", letterSpacing: 4, margin: 0 }}>INVOICE</p>
+                <span style={{ background: "#ffffff", border: "1px solid #000000", color: "#000000", fontWeight: 700, fontSize: 13, padding: "3px 14px", borderRadius: 8, display: "inline-block", marginTop: 6 }}>
                   #{invNo}
                 </span>
-                <p style={{ fontSize: 11, color: "#94a3b8", marginTop: 6 }}>{invoiceDate || "—"}</p>
+                <p style={{ fontSize: 11, color: "#000000", marginTop: 6 }}>{invoiceDate || "—"}</p>
               </div>
             </div>
           </div>
 
           {/* Bill To */}
-          <div style={{ background: "#f9fafb", borderBottom: "1px solid #e5e7eb", padding: "14px 32px" }}>
-            <p style={{ fontSize: 10, fontWeight: 700, color: "#9ca3af", textTransform: "uppercase", letterSpacing: 2, margin: "0 0 4px" }}>Bill To</p>
-            <p style={{ fontSize: 15, fontWeight: 800, color: "#111827", margin: 0 }}>{displayName}</p>
-            {toPhone && <p style={{ fontSize: 13, color: "#6b7280", margin: "3px 0 0" }}>{toPhone}</p>}
-            {toAddress && <p style={{ fontSize: 13, color: "#6b7280", margin: "2px 0 0" }}>{toAddress}</p>}
+          <div style={{ background: "#ffffff", borderBottom: "1px solid #000000", padding: "14px 32px" }}>
+            <p style={{ fontSize: 10, fontWeight: 700, color: "#000000", textTransform: "uppercase", letterSpacing: 2, margin: "0 0 4px" }}>Bill To</p>
+            <p style={{ fontSize: 15, fontWeight: 800, color: "#000000", margin: 0 }}>{displayName}</p>
+            {toPhone && <p style={{ fontSize: 13, color: "#000000", margin: "3px 0 0" }}>{toPhone}</p>}
+            {toAddress && <p style={{ fontSize: 13, color: "#000000", margin: "2px 0 0" }}>{toAddress}</p>}
           </div>
 
           {/* Table */}
           <div style={{ padding: "24px 32px" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
-                <tr style={{ background: "#0b2545" }}>
-                  <th style={{ textAlign: "left", color: "#e2e8f0", fontSize: 11, fontWeight: 700, padding: "10px 14px", width: 36 }}>S/N</th>
-                  <th style={{ textAlign: "left", color: "#e2e8f0", fontSize: 11, fontWeight: 700, padding: "10px 14px" }}>DESCRIPTION</th>
-                  <th style={{ textAlign: "right", color: "#e2e8f0", fontSize: 11, fontWeight: 700, padding: "10px 14px", width: 130 }}>AMOUNT ($)</th>
+                <tr style={{ background: "#ffffff", borderBottom: "2px solid #000000" }}>
+                  <th style={{ textAlign: "left", color: "#000000", fontSize: 11, fontWeight: 700, padding: "10px 14px", width: 36 }}>S/N</th>
+                  <th style={{ textAlign: "left", color: "#000000", fontSize: 11, fontWeight: 700, padding: "10px 14px" }}>DESCRIPTION</th>
+                  <th style={{ textAlign: "right", color: "#000000", fontSize: 11, fontWeight: 700, padding: "10px 14px", width: 130 }}>AMOUNT ($)</th>
                 </tr>
               </thead>
               <tbody>
                 {items.map((item, i) => (
-                  <tr key={i} style={{ borderBottom: "1px solid #f3f4f6", background: i % 2 === 0 ? "white" : "#f9fafb" }}>
-                    <td style={{ padding: "12px 14px", fontSize: 13, color: "#9ca3af", fontWeight: 600 }}>{i + 1}</td>
-                    <td style={{ padding: "12px 14px", fontSize: 13, color: "#1f2937" }}>
+                  <tr key={i} style={{ borderBottom: "1px solid #d1d5db", background: "#ffffff" }}>
+                    <td style={{ padding: "12px 14px", fontSize: 13, color: "#000000", fontWeight: 600 }}>{i + 1}</td>
+                    <td style={{ padding: "12px 14px", fontSize: 13, color: "#000000" }}>
                       <p style={{ fontWeight: 600, margin: 0 }}>{item.description}</p>
-                      {item.note && <p style={{ fontSize: 11, color: "#9ca3af", margin: "3px 0 0", fontStyle: "italic" }}>{item.note}</p>}
+                      {item.note && <p style={{ fontSize: 11, color: "#000000", margin: "3px 0 0", fontStyle: "italic" }}>{item.note}</p>}
                     </td>
-                    <td style={{ padding: "12px 14px", fontSize: 13, textAlign: "right", fontWeight: 600, color: "#1f2937" }}>
+                    <td style={{ padding: "12px 14px", fontSize: 13, textAlign: "right", fontWeight: 600, color: "#000000" }}>
                       {item.amount ? `$${parseFloat(item.amount).toFixed(2)}` : "—"}
                     </td>
                   </tr>
@@ -309,35 +309,35 @@ const SarimonInvoice = () => {
 
             {/* Total box */}
             <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 16 }}>
-              <div style={{ background: "#0b2545", color: "white", borderRadius: 12, padding: "16px 24px", minWidth: 220, textAlign: "right" }}>
-                <p style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, margin: 0 }}>Total Amount</p>
-                <p style={{ fontSize: 28, fontWeight: 800, margin: "6px 0 0" }}>${total.toFixed(2)}</p>
+              <div style={{ background: "#ffffff", border: "1px solid #000000", color: "#000000", borderRadius: 12, padding: "16px 24px", minWidth: 220, textAlign: "right" }}>
+                <p style={{ fontSize: 11, color: "#000000", textTransform: "uppercase", letterSpacing: 1, margin: 0 }}>Total Amount</p>
+                <p style={{ fontSize: 28, fontWeight: 800, margin: "6px 0 0", color: "#000000" }}>${total.toFixed(2)}</p>
               </div>
             </div>
 
             {/* Warranty */}
-            <div style={{ marginTop: 20, background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: 12, padding: "10px 16px", display: "inline-block" }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: "#92400e" }}>WARRANTY: </span>
-              <span style={{ fontSize: 15, fontWeight: 700, color: "#111827" }}>{warrantyDays || "0"} days</span>
+            <div style={{ marginTop: 20, background: "#ffffff", border: "1px solid #000000", borderRadius: 12, padding: "10px 16px", display: "inline-block" }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: "#000000" }}>WARRANTY: </span>
+              <span style={{ fontSize: 15, fontWeight: 700, color: "#000000" }}>{warrantyDays || "0"} days</span>
             </div>
 
             {/* Signature row */}
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "1px solid #e5e7eb", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-              <p style={{ fontSize: 13, color: "#9ca3af", fontStyle: "italic", margin: 0 }}>Thank you for your business!</p>
+            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "1px solid #000000", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+              <p style={{ fontSize: 13, color: "#000000", fontStyle: "italic", margin: 0 }}>Thank you for your business!</p>
               <div style={{ textAlign: "right" }}>
-                <p style={{ fontSize: 13, fontWeight: 600, color: "#1f2937", margin: "0 0 8px" }}>For SARIMON ENGINEERING PTE. LTD</p>
+                <p style={{ fontSize: 13, fontWeight: 600, color: "#000000", margin: "0 0 8px" }}>For SARIMON ENGINEERING PTE. LTD</p>
                 <img
                   src="sign.png"
                   alt="Signature"
                   style={{ height: 46, marginLeft: "auto", marginBottom: 4, display: "block", objectFit: "contain" }}
                   onError={(e) => { e.target.style.display = "none"; }}
                 />
-                <div style={{ borderTop: "2px solid #0b2545", paddingTop: 6, fontSize: 11, color: "#9ca3af" }}>Authorized Signatory</div>
+                <div style={{ borderTop: "2px solid #000000", paddingTop: 6, fontSize: 11, color: "#000000" }}>Authorized Signatory</div>
               </div>
             </div>
 
             {/* Footer */}
-            <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #f3f4f6", textAlign: "center", fontSize: 11, color: "#9ca3af", fontStyle: "italic" }}>
+            <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #000000", textAlign: "center", fontSize: 11, color: "#000000", fontStyle: "italic" }}>
               Thank you for your business! · Sarimon Engineering Pte Ltd
             </div>
           </div>
