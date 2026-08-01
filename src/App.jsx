@@ -12,11 +12,9 @@ function App() {
     <>
       <div>
         Invoice
-        <AsianColor />
         <SarimonInvoice />
+        <AsianColor />
         <Date1 />
-        
-        
         <Invoice3 />
         <Invoice4 />
         <RockyColor />
