@@ -321,23 +321,8 @@ const SarimonInvoice = () => {
               <span style={{ fontSize: 15, fontWeight: 700, color: "#000000" }}>{warrantyDays || "0"} days</span>
             </div>
 
-            {/* Signature row */}
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "1px solid #000000", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-              <p style={{ fontSize: 13, color: "#000000", fontStyle: "italic", margin: 0 }}>Thank you for your business!</p>
-              <div style={{ textAlign: "right" }}>
-                <p style={{ fontSize: 13, fontWeight: 600, color: "#000000", margin: "0 0 8px" }}>For SARIMON ENGINEERING PTE. LTD</p>
-                <img
-                  src="sign.png"
-                  alt="Signature"
-                  style={{ height: 46, marginLeft: "auto", marginBottom: 4, display: "block", objectFit: "contain" }}
-                  onError={(e) => { e.target.style.display = "none"; }}
-                />
-                <div style={{ borderTop: "2px solid #000000", paddingTop: 6, fontSize: 11, color: "#000000" }}>Authorized Signatory</div>
-              </div>
-            </div>
-
             {/* Footer */}
-            <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #000000", textAlign: "center", fontSize: 11, color: "#000000", fontStyle: "italic" }}>
+            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "1px solid #000000", textAlign: "center", fontSize: 13, color: "#000000", fontStyle: "italic" }}>
               Thank you for your business! · Sarimon Engineering Pte Ltd
             </div>
           </div>
